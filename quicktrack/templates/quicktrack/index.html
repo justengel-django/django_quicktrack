@@ -1,0 +1,47 @@
+{% extends 'quicktrack/base.html' %}
+{% load django_tables2 %}
+
+
+{% block contents %}
+    <div class="row">
+        <div class="col sm12 m9 l9">
+            <div class="section scrollspy {{ PRIMARY_COLOR }}-text">
+                <h4 class="left">Track Records</h4>
+            </div>
+
+            {% render_table table %}
+        </div>
+
+        <div class="col m3 l3 hide-on-small-only">
+            <div class="card">
+                <div class="card-content">
+                    <h4 class="{{ PRIMARY_COLOR }}-text">Filter</h4>
+                    <form method="get">
+                        {{ filter.form.as_p }}
+                        <input class="btn" type="submit" value="Filter">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large {{ PRIMARY_COLOR }}">
+            <i class="material-icons">edit</i>
+        </a>
+
+        <ul>
+            <li><a class='btn-floating tooltipped {{ PRIMARY_COLOR }}' data-position="top" data-tooltip="Create a Record"
+                   href="{% url 'quicktrack:record_new' %}"><i class="material-icons">add</i></a>
+            </li>
+        {% for act in actions %}
+            <li>
+                <a class="btn-floating tooltipped {{ act.color }}" data-position="top" data-tooltip="{{ act.name }}"
+                    href="{% url 'quicktrack:record_quick' pk=act.pk %}">
+                    <i class="material-icons">{{ act.icon }}</i>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

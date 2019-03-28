@@ -1,0 +1,10 @@
+{% extends 'materialize_nav/base.html' %}
+
+{% block nav_items %}
+    <li><a href="{% url 'quicktrack:home' %}"><i class="material-icons">home</i></a></li>
+    <li><a href="{% url 'quicktrack:type_list' %}">Type List</a></li>
+    <li><a href="{% url 'quicktrack:actions_list' %}">Quick Actions</a></li>
+{% endblock %}
+
+{% block sidenav_items %}
+{% endblock %}

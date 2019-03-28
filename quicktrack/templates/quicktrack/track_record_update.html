@@ -1,0 +1,24 @@
+{% extends 'quicktrack/base.html' %}
+
+
+{% block contents %}
+    <div class="row">
+         <div class="col sm12 m12 l12">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title {{ PRIMARY_COLOR }}-text">Record</span>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <br />
+                        <input class="btn" type="submit" value="Save">
+                        {% if record %}
+                        <a class="btn red" href="{% url 'quicktrack:record_delete' pk=track_type.pk %}">Delete</a>
+                        {% endif %}
+                        <input class="btn grey" type=button value="Cancel" onClick="javascript:history.go(-1);">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

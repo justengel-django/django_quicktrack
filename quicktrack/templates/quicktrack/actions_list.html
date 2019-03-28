@@ -1,0 +1,18 @@
+{% extends 'quicktrack/base.html' %}
+
+
+{% block contents %}
+    <div class="section scrollspy {{ PRIMARY_COLOR }}-text">
+        <h4>Actions</h4>
+    </div>
+    <a class="btn" href="{% url 'quicktrack:actions_new' %}">Create Action</a>
+
+    <ul class="collection">
+    {% for act in actions %}
+        <li class="collection-item">{{ act.name }}
+            <a class="secondary-content red-text" href="{% url 'quicktrack:actions_delete' pk=act.pk %}"><i class="material-icons">delete</i></a>
+            <a class="secondary-content" href="{% url 'quicktrack:actions_edit' pk=act.pk %}"><i class="material-icons">edit</i></a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

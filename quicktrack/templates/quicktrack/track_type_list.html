@@ -1,0 +1,18 @@
+{% extends 'quicktrack/base.html' %}
+
+
+{% block contents %}
+    <div class="section scrollspy {{ PRIMARY_COLOR }}-text">
+        <h4>Types</h4>
+    </div>
+    <a class="btn" href="{% url 'quicktrack:type_new' %}">Create Type</a>
+
+    <ul class="collection">
+    {% for t in track_types %}
+        <li class="collection-item">{{ t.name }}
+            <a class="secondary-content red-text" href="{% url 'quicktrack:type_delete' pk=t.pk %}"><i class="material-icons">delete</i></a>
+            <a class="secondary-content" href="{% url 'quicktrack:type_edit' pk=t.pk %}"><i class="material-icons">edit</i></a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

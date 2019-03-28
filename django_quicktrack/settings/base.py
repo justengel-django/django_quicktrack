@@ -38,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'quicktrack.apps.QuicktrackConfig',
+
+    'django_tables2',
+    'django_filters',
+    'taggit',
+    'taggit_helpers',
+    'materialize_nav',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'materialize_nav.context_processors.get_context'
             ],
         },
     },
