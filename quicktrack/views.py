@@ -18,7 +18,7 @@ from .forms import DeleteForm, TrackRecordForm, TrackTypeForm, QuickActionForm
 
 @login_required
 def index(request):
-    context = {'title': 'Quick Track'}
+    context = {'title': 'Home|Quick Track'}
     params = {k: v for k, v in request.GET.items() if v != ''}
 
     f = TrackingFilter(params, queryset=TrackRecord.objects.with_user(request.user), request=request)
@@ -33,7 +33,7 @@ def index(request):
 
 @login_required
 def track_record_update(request, pk=None):
-    context = {'title': 'Quick Track'}
+    context = {'title': 'Update Record|Quick Track'}
 
     try:
         record = TrackRecord.objects.get(pk=pk)
@@ -60,7 +60,7 @@ def track_record_update(request, pk=None):
 
 @login_required
 def track_record_delete(request, pk):
-    context = {'title': 'Quick Track'}
+    context = {'title': 'Delete Record|Quick Track'}
 
     if request.method == 'POST':
         form = DeleteForm(request.POST)
@@ -93,7 +93,7 @@ def actions_quick_add(request, pk):
 # ========== Track Type ==========
 @login_required
 def track_type_list(request):
-    context = {'title': 'Quick Track'}
+    context = {'title': 'List Type|Quick Track'}
 
     track_types = TrackType.objects.with_user(request.user)
 
@@ -104,7 +104,7 @@ def track_type_list(request):
 
 @login_required
 def track_type_update(request, pk=None):
-    context = {'title': 'Quick Track'}
+    context = {'title': 'Update Type|Quick Track'}
 
     try:
         track_type = TrackType.objects.get(pk=pk)
@@ -127,7 +127,7 @@ def track_type_update(request, pk=None):
 
 @login_required
 def track_type_delete(request, pk):
-    context = {'title': 'Quick Track'}
+    context = {'title': 'Delete Type|Quick Track'}
 
     if request.method == 'POST':
         form = DeleteForm(request.POST)
@@ -147,7 +147,7 @@ def track_type_delete(request, pk):
 # ========== Quick Actions ==========
 @login_required
 def actions_list(request):
-    context = {'title': 'Quick Track'}
+    context = {'title': 'List Actions|Quick Track'}
 
     actions = QuickAction.objects.filter(user=request.user)
 
@@ -158,7 +158,7 @@ def actions_list(request):
 
 @login_required
 def actions_update(request, pk=None):
-    context = {'title': 'Quick Track'}
+    context = {'title': 'Update Action|Quick Track'}
 
     try:
         action = QuickAction.objects.get(pk=pk)
@@ -181,7 +181,7 @@ def actions_update(request, pk=None):
 
 @login_required
 def actions_delete(request, pk):
-    context = {'title': 'Quick Track'}
+    context = {'title': 'Delete Action|Quick Track'}
 
     if request.method == 'POST':
         form = DeleteForm(request.POST)

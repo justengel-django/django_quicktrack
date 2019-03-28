@@ -3,4 +3,4 @@ django_tables2>=2.0.6
 django-filter>=2.1.0
 django-taggit>=1.1.0
 django-taggit-helpers>=0.1.4
-django_materialize_nav>=1.0.1
+django_materialize_nav>=1.0.2
